@@ -1,0 +1,75 @@
+<div class="mt-3">
+  <h1 class="mt-2 text-center">SignUp To Your Account</h1>
+  <hr style="border-top: 3px solid black ;">
+</div>
+
+<div class="mx-5 pb-3">
+  <form #SignUpForm="ngForm" (ngSubmit)="SignUpForm.form.valid">
+    <input type="number" id="Uid" name="Uid" [(ngModel)]="SignUpData.uid" matInput style="display: none;" />
+    
+      <mat-form-field class="col-sm-5 mx-5 mt-2" appearance="outline">
+        <mat-label>Fist Name</mat-label>
+        <input name="fname" id="fname" required="true" [(ngModel)]="SignUpData.fname" type="text" matInput placeholder="FIrst Name" />
+        <mat-error *ngIf="SignUpForm.form.touched">Field is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-sm-5 mx-5 mt-2" appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input name="lname" id="lname" required="true" [(ngModel)]="SignUpData.lname" type="text" matInput placeholder="Last Name" />
+        <mat-error *ngIf="SignUpForm.form.touched">Field is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-sm-5 mx-5 mt-2" appearance="outline">
+        <mat-label>Email</mat-label>
+        <input name="email" id="email" required="true" [(ngModel)]="SignUpData.email" type="email" matInput placeholder="Email" />
+        <mat-error *ngIf="SignUpForm.form.touched">Field is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-sm-5 mt-2 mx-5" appearance="outline">
+        <mat-label>Phone Number</mat-label>
+        <input name="phno" type="tel" required="true" id="phoneNumber" [(ngModel)]="SignUpData.phonenumber" matInput placeholder="Phone Number" />
+        <mat-error *ngIf="SignUpForm.form.touched">Field is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="col-sm-5 mx-5 mt-2" appearance="outline">
+        <mat-label>Password</mat-label>
+        <input type="password" name="password" required="true" id="password" [(ngModel)]="SignUpData.Password" matInput placeholder="Create New Password" />
+        <mat-error *ngIf="SignUpForm.form.touched">Field is required</mat-error>
+      </mat-form-field>
+
+      <!-- <div class="text-center">
+        <mat-form-field class="col-sm-4" appearance="outline">
+            <input name="confirmPassword" type="text" matInput placeholder="Confirm Password" />
+          </mat-form-field>
+        </div> -->
+          <mat-form-field class="col-sm-5 mx-5 mt-2" appearance="outline">
+              <mat-label>Date of Birth</mat-label>
+              <input matInput placeholder="Date of Birth" readonly (dateChange)="onDateChange(SignUpData.DOB)" required="true" [matDatepicker]="picker1" name="dateofbirth" [(ngModel)]="SignUpData.DOB">
+              <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1 startView="year"></mat-datepicker>
+              <mat-error *ngIf="SignUpForm.form.touched">Field is required</mat-error>
+            </mat-form-field>
+
+          <mat-form-field class="col-sm-5 mx-5 mt-2" appearance="outline">
+              <mat-label>Age</mat-label>
+            <input type="number" required="true" disabled name="age" matInput placeholder="age" [(ngModel)]="SignUpData.Age"/>
+            <mat-error *ngIf="SignUpForm.form.touched">Field is required</mat-error>
+          </mat-form-field>
+
+          <mat-form-field class="col-sm-5 mx-5 mt-2" appearance="outline">
+            <mat-label>Gender</mat-label>
+            <mat-select required="true" id="gender" name="gender" [(ngModel)]="SignUpData.Gender">
+              <mat-option></mat-option>
+              <mat-option *ngFor="let item of Gender" [value]="item.ObjId">{{item.ObjName}}</mat-option>
+            </mat-select>
+            <mat-error *ngIf="SignUpForm.form.touched">Field is required</mat-error>
+          </mat-form-field>
+
+      <div class="text-center">
+        <a class="btn-primary fs-16" style="cursor: pointer;" [routerLink]="['/login']">Already Have an Account?</a>
+      </div>
+      <div class="text-center mt-2 mx-5">
+        <button mat-raised-button color="primary" [disabled]="SignUpForm.form.invalid" class="col-md-4" (click)="SaveUserData()">SignUp</button>
+      </div>
+    </form>
+  </div>

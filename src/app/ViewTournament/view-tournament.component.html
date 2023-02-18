@@ -1,0 +1,44 @@
+<div class="mt-3">
+  <h1 class="mx-3" style="font-size: 30px;">View Tournament</h1>
+  <hr style="border-top: 3px solid black ;">
+</div>
+<div class="mx-3 mt-3">
+  <div class="row col-md-12">
+<div class="col-md-6" *ngFor="let item of ViewTournamentDataSource">  
+<div class="card mb-3" style="max-width: 640px;" >
+    <div class="row g-0">
+      <div class="col-md-6">
+        <img
+          src="https://png.pngtree.com/png-clipart/20221231/original/pngtree-icc-cricket-world-cup-trophy-realistic-3d-design-vector-png-image_8838028.png"
+          class="img-fluid rounded-start"
+        />
+      </div>
+      <div class="col-md-6">
+        <div class="card-body">
+          <h5 class="card-title" style="font-size: 18px;"> Tournament Name :- {{item.tName}}</h5>
+          <h5 class="card-title" style="font-size: 18px;"> Organiser Name :- {{item.OrganiserName}}</h5>
+          <h5 class="card-title" style="font-size: 18px;"> City :- {{item.city}}</h5>
+          <h5 class="card-title" style="font-size: 18px;"> Start Date :- {{item.startDate | date: 'dd/MMM/yyyy'}}</h5>
+          <h5 class="card-title" style="font-size: 18px;"> End Date :- {{item.endDate | date: 'dd/MMM/yyyy'}}</h5>
+          <h5 class="card-title" style="font-size: 18px;"> Ball Type :- {{item.ballType}}</h5>
+          <h5 class="card-title" style="font-size: 18px;"> Match Type :- {{item.matchType}}</h5>
+          <p class="card-text" style="font-size: 18px;">
+            Description :- {{item.description}}
+          </p>
+          <p class="card-text">
+            <small class="text-muted">Last Updated On :- {{item.modifiedDate}}</small>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+        <button mat-raised-button color="primary" class="mb-3 mx-3" style="float: right;"> View </button>
+        <button mat-raised-button color="primary" class="mb-3 mx-2" style="float: right;"> Edit </button>
+        <button mat-raised-button color="primary" class="mb-3 mx-2" style="float: right;"> Delete </button>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+  </div>
+</div>
